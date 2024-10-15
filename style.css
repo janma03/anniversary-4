@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+    overflow: hidden;
+    animation: bgColorChange 10s infinite alternate;
+}
+
+/* Music Control Button */
+.play-button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    font-size: 18px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensure button is above other elements */
+}
+
+.play-button:hover {
+    background-color: #ff4500;
+}
+
+/* Circular Rotating Badge */
+.badge-circle {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    animation: rotateBadge 5s infinite linear;
+    overflow: hidden;
+    z-index: 5; /* Make sure this is lower than the play button */
+}
+
+.badge-img-circle {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@keyframes rotateBadge {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Quote Section */
+.quote {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #ff5733;
+}
+
+.quote h2 {
+    font-size: 32px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.quote p {
+    margin: 10px 0 0;
+    font-size: 20px;
+    color: #333;
+}
+
+/* Floating Balloons */
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 50px;
+    height: 80px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    animation: floatUp 7s ease-in-out infinite;
+}
+
+.balloon:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 50px;
+    background-color: #555;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+    0% {
+        bottom: -150px;
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        bottom: 120%;
+        transform: rotate(-10deg);
+    }
+}
+
+.balloon:nth-child(odd) {
+    background-color: #ff6347;
+    animation-duration: 6s;
+}
+
+.balloon:nth-child(even) {
+    background-color: #87cefa;
+    animation-duration: 8s;
+}
+
+/* Fireworks */
+.fireworks {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px 10px #ff5733;
+    top: 50%;
+    left: 50%;
+    animation: explode 2s ease-out infinite;
+}
+
+@keyframes explode {
+    0% {
+        width: 5px;
+        height: 5px;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2);
+    }
+}
+
+/* Background color transition */
+@keyframes bgColorChange {
+    0% { background: linear-gradient(to right, #ffecd2, #fcb69f); }
+    100% { background: linear-gradient(to right, #2193b0, #6dd5ed); }
+}
+
+/* Image Gallery */
+.image-gallery {
+    position: absolute;
+    top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
